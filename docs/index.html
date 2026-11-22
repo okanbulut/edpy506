@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EDPY 506 Machine Learning: Course Materials</title>
+<meta name="description" content="Cheatsheets, workflow recipe, method flowchart and Colab recipe notebooks for EDPY 506 Machine Learning: Theory and Applications (University of Alberta).">
+<link rel="icon" href="assets/logo.png">
+<style>
+:root { --navy:#4E5089; --ink:#262626; --grey:#595959; --shade:#EEF0F7; --blue:#70C2EF; --orange:#E07B39; --bg:#FFFFFF; --line:#9AA3C7; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:Calibri, Carlito, "Segoe UI", system-ui, sans-serif; font-size:1.0625rem; line-height:1.55; color:var(--ink); background:var(--bg); }
+a { color:var(--navy); text-underline-offset:2px; }
+a:hover { text-decoration-thickness:2px; }
+:focus-visible { outline:3px solid var(--navy); outline-offset:3px; border-radius:2px; box-shadow:0 0 0 6px var(--blue); }
+.skip { position:absolute; left:-999px; top:0; background:var(--navy); color:#fff; padding:.6rem 1rem; z-index:10; }
+.skip:focus { left:1rem; }
+.sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.wrap { max-width:68rem; margin:0 auto; padding:0 1rem; }
+header { border-bottom:4px solid var(--navy); }
+.brand { display:flex; gap:1rem; align-items:center; padding:1rem 0 .75rem; }
+.brand img { width:64px; height:auto; }
+.brand p { margin:0; color:var(--grey); font-size:.95rem; }
+h1 { margin:.1rem 0 0; color:var(--navy); font-size:clamp(1.5rem,4vw,2.1rem); line-height:1.2; }
+nav ul { list-style:none; margin:0; padding:.25rem 0 .75rem; display:flex; flex-wrap:wrap; gap:.25rem 1.25rem; }
+nav a { font-weight:700; text-decoration:none; padding:.25rem 0; display:inline-block; }
+nav a:hover { text-decoration:underline; }
+section { padding:1.75rem 0 .5rem; }
+h2 { color:var(--navy); font-size:1.5rem; margin:0 0 .75rem; padding-bottom:.25rem; border-bottom:2px solid var(--blue); }
+h3 { color:var(--navy); font-size:1.15rem; margin:0 0 .25rem; }
+.callout { background:var(--shade); border:1px solid var(--navy); padding:1rem 1.25rem; margin:0 0 1rem; }
+.grid2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(18rem,1fr)); gap:1rem; }
+.panel { border:1px solid var(--line); padding:1rem 1.25rem; }
+.panel p { margin:.25rem 0 .5rem; }
+.fmt { color:var(--grey); font-size:.9em; }
+table { width:100%; border-collapse:collapse; }
+caption { text-align:left; color:var(--grey); padding-bottom:.4rem; }
+th, td { border:1px solid var(--line); padding:.5rem .65rem; vertical-align:top; text-align:left; }
+thead th { background:var(--navy); color:#fff; }
+tbody th { background:var(--shade); width:4.5rem; }
+td.dl { white-space:nowrap; }
+.topics { display:block; color:var(--grey); font-size:.92em; }
+.cards { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(19rem,1fr)); gap:1rem; }
+.card { border:1px solid var(--line); border-top:5px solid var(--navy); padding:1rem 1.1rem; }
+.num { display:block; font-size:.85rem; color:var(--grey); font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+.meta { color:var(--grey); margin:.2rem 0 .6rem; font-size:.95rem; }
+.btn { display:inline-block; background:var(--navy); color:#fff; font-weight:700; text-decoration:none; padding:.5rem .9rem; border-radius:4px; }
+.btn:hover { background:#3B3D6E; }
+.links { padding-left:1.1rem; margin:.6rem 0 0; }
+figure { margin:0 0 1rem; }
+figure img { width:100%; height:auto; border:1px solid var(--line); }
+figcaption { color:var(--grey); font-size:.95rem; margin-top:.4rem; }
+ol.steps { padding-left:1.4rem; } ol.steps li { margin:.2rem 0; }
+footer { margin-top:2rem; padding:1rem 0 2rem; color:var(--grey); font-size:.92rem; }
+.bar { height:8px; background:linear-gradient(90deg,var(--orange) 0 6%,var(--blue) 6% 30%,var(--navy) 30% 100%); }
+@media (max-width:40rem) { td.dl { white-space:normal; } tbody th { width:auto; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+ <div class="wrap">
+  <div class="brand">
+   <img src="assets/logo.png" alt="EDPY 506 course logo: a hexagon with a figure that is half human, half robot">
+   <div><p>University of Alberta · EDPY 506</p><h1>Machine Learning: Theory and Applications</h1></div>
+  </div>
+  <nav aria-label="Sections"><ul>
+   <li><a href="#start">Start here</a></li><li><a href="#choose">Choose a method</a></li>
+   <li><a href="#workflow">Workflow recipe</a></li><li><a href="#cheatsheets">Cheatsheets</a></li>
+   <li><a href="#recipes">Recipe notebooks</a></li><li><a href="#data">Data and credits</a></li>
+  </ul></nav>
+ </div>
+</header>
+<main id="main" class="wrap">
+
+<section id="start" aria-labelledby="start-h">
+ <h2 id="start-h">Start here</h2>
+ <p class="callout">Take-home materials for reviewing lectures, looking things up, and starting your own projects. No background beyond the course and no installation are needed: every notebook runs in Google Colab in your browser.</p>
+ <div class="grid2">
+  <div class="panel"><h3>Three ways to use them</h3>
+   <ol class="steps">
+    <li><strong>After each lecture:</strong> read the cheatsheet, try its self-check, then run the matching recipe notebook.</li>
+    <li><strong>For a project:</strong> choose a method with the flowchart, follow the workflow recipe, and adapt a recipe notebook to your data.</li>
+    <li><strong>To review:</strong> test yourself with the cheatsheets' pitfalls and the workflow checklists.</li>
+   </ol></div>
+  <div class="panel"><h3>Running a notebook</h3>
+   <ol class="steps">
+    <li>Click <strong>Open in Colab</strong> and sign in with any Google account.</li>
+    <li>Choose <strong>Runtime → Run all</strong>. Nothing to upload.</li>
+    <li>Compare your output with each <em>What you should see</em> note.</li>
+    <li>Edit the <strong>Change these parameters</strong> cell and run again.</li>
+   </ol></div>
+ </div>
+ <p>The one-page guide: <a href="Recipes/00_How_to_Use_These_Materials.pdf" download>How to use these materials<span class="fmt"> (PDF, 86 KB)</span></a> · <a href="Recipes/00_How_to_Use_These_Materials.docx" download>Word<span class="fmt"> (Word, 94 KB)</span></a></p>
+</section>
+
+<section id="choose" aria-labelledby="choose-h">
+ <h2 id="choose-h">Which method should I use?</h2>
+ <figure>
+  <img src="assets/flowchart.png" alt="Decision flowchart. Q1: is there an outcome to predict? If yes, Q2: what kind of data? Text leads to TF-IDF plus logistic regression (Recipe 7) when labels are plentiful, or a pretrained transformer (Recipe 8). A table leads to linear or logistic regression (Recipes 1 and 3) to explain variables, trees and forests (Recipe 2) for accuracy, or a neural network (Recipe 6) for very large data. Images, sound or sequences lead to CNNs or RNNs (Recipe 6, Lecture 7). If no outcome, Q4: fewer variables leads to PCA (Recipe 4), groups to clustering (Recipe 5), unusual cases to anomaly detection (Lecture 8). Every model follows the workflow recipe; models that affect people get a fairness audit (Recipe 9). A full text version is in the flowchart PDF, page 2." width="1800" height="1200" loading="lazy">
+  <figcaption>From your data and question to a method, a recipe notebook, and a cheatsheet. The PDF adds the flowchart as a text list with links: <a href="Recipes/02_Which_Method_Flowchart.pdf" download>Flowchart<span class="fmt"> (PDF, 388 KB)</span></a> · <a href="Recipes/02_Which_Method_Flowchart.docx" download>Word<span class="fmt"> (Word, 524 KB)</span></a></figcaption>
+ </figure>
+</section>
+
+<section id="workflow" aria-labelledby="workflow-h">
+ <h2 id="workflow-h">The ML workflow recipe</h2>
+ <p>Every project follows the same seven steps. The recipe paper has a checklist for each step, an example, and pointers to the lectures.</p>
+ <ol class="steps">
+  <li><strong>Define the problem:</strong> the outcome, the inputs available at prediction time, and how you will judge success.</li>
+  <li><strong>Split the data:</strong> hide a test set first; use cross-validation for every choice.</li>
+  <li><strong>Preprocess:</strong> impute, encode, scale, inside a pipeline so nothing leaks.</li>
+  <li><strong>Baseline:</strong> the score of a do-nothing model.</li>
+  <li><strong>Train and tune:</strong> compare models and settings by cross-validation.</li>
+  <li><strong>Evaluate:</strong> once, on the test set, and group by group when people are affected.</li>
+  <li><strong>Interpret:</strong> coefficients, importance, SHAP; association is not causation.</li>
+ </ol>
+ <p><a href="Recipes/01_ML_Workflow_Recipe.pdf" download>ML Workflow Recipe<span class="fmt"> (PDF, 155 KB)</span></a> · <a href="Recipes/01_ML_Workflow_Recipe.docx" download>Word<span class="fmt"> (Word, 98 KB)</span></a></p>
+</section>
+
+<section id="cheatsheets" aria-labelledby="cheat-h">
+ <h2 id="cheat-h">Lecture cheatsheets</h2>
+ <p>Two pages per lecture: the big idea, key terms, how it works, when to use it, pitfalls, and a self-check with answers.</p>
+ <div style="overflow-x:auto" tabindex="0" role="region" aria-label="Cheatsheets table, scrolls sideways on small screens">
+ <table>
+  <caption>Cheatsheets by lecture</caption>
+  <thead><tr><th scope="col">Lecture</th><th scope="col">Topic</th><th scope="col">Download</th></tr></thead>
+  <tbody>
+  <tr><th scope="row">1</th><td>Introduction to Machine Learning<span class="topics">What ML is  ·  Explanation vs. prediction  ·  Supervised vs. unsupervised  ·  Training, validation, and test data  ·  Overfitting</span></td><td class="dl"><a href="Cheatsheets/Lecture01_Intro_to_ML_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 134 KB)</span></a><br><a href="Cheatsheets/Lecture01_Intro_to_ML_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 151 KB)</span></a></td></tr><tr><th scope="row">2</th><td>Supervised Machine Learning for Regression<span class="topics">Linear regression  ·  Bias–variance trade-off  ·  Ridge and lasso  ·  Decision trees  ·  Random forests</span></td><td class="dl"><a href="Cheatsheets/Lecture02_Regression_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 146 KB)</span></a><br><a href="Cheatsheets/Lecture02_Regression_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 151 KB)</span></a></td></tr><tr><th scope="row">3</th><td>Supervised Machine Learning for Classification<span class="topics">Logistic regression  ·  K-nearest neighbors  ·  Support vector machines  ·  Evaluating classifiers</span></td><td class="dl"><a href="Cheatsheets/Lecture03_Classification_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 142 KB)</span></a><br><a href="Cheatsheets/Lecture03_Classification_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 167 KB)</span></a></td></tr><tr><th scope="row">4</th><td>Supervised ML: Feature Selection and Model Tuning<span class="topics">Class imbalance  ·  Feature engineering  ·  Feature selection  ·  Hyperparameters  ·  Cross-validation  ·  Grid and random search</span></td><td class="dl"><a href="Cheatsheets/Lecture04_Feature_Selection_Tuning_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 148 KB)</span></a><br><a href="Cheatsheets/Lecture04_Feature_Selection_Tuning_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 146 KB)</span></a></td></tr><tr><th scope="row">6</th><td>Deep Learning: Foundations<span class="topics">From logistic regression to the perceptron  ·  Multilayer perceptrons  ·  Activation functions  ·  How neural networks learn</span></td><td class="dl"><a href="Cheatsheets/Lecture06_Deep_Learning_Foundations_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 134 KB)</span></a><br><a href="Cheatsheets/Lecture06_Deep_Learning_Foundations_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 150 KB)</span></a></td></tr><tr><th scope="row">7</th><td>Deep Learning: Architectures Survey<span class="topics">Inductive bias  ·  Convolutional neural networks  ·  Recurrent neural networks  ·  LSTMs  ·  Transfer learning</span></td><td class="dl"><a href="Cheatsheets/Lecture07_Deep_Learning_Architectures_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 130 KB)</span></a><br><a href="Cheatsheets/Lecture07_Deep_Learning_Architectures_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 116 KB)</span></a></td></tr><tr><th scope="row">8</th><td>Unsupervised ML: Dimensionality Reduction and Clustering<span class="topics">Why unsupervised learning  ·  PCA  ·  k-means, hierarchical clustering, DBSCAN  ·  Anomaly detection</span></td><td class="dl"><a href="Cheatsheets/Lecture08_Unsupervised_ML_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 141 KB)</span></a><br><a href="Cheatsheets/Lecture08_Unsupervised_ML_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 146 KB)</span></a></td></tr><tr><th scope="row">9</th><td>Natural Language Processing: Foundations<span class="topics">What NLP is  ·  Tokenization  ·  Bag of words and TF-IDF  ·  Word embeddings  ·  Embeddings meet clustering</span></td><td class="dl"><a href="Cheatsheets/Lecture09_NLP_Foundations_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 136 KB)</span></a><br><a href="Cheatsheets/Lecture09_NLP_Foundations_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 154 KB)</span></a></td></tr><tr><th scope="row">10</th><td>NLP: Transformers and Large Language Models<span class="topics">Attention  ·  Pretraining  ·  Fine-tuning  ·  Prompting  ·  Choosing a route, and what can go wrong</span></td><td class="dl"><a href="Cheatsheets/Lecture10_Transformers_LLMs_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 138 KB)</span></a><br><a href="Cheatsheets/Lecture10_Transformers_LLMs_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 136 KB)</span></a></td></tr><tr><th scope="row">11</th><td>Bias and Ethical Concerns in Machine Learning<span class="topics">Where bias comes from  ·  Measuring fairness  ·  Explainability: SHAP and LIME  ·  When LLMs get it wrong</span></td><td class="dl"><a href="Cheatsheets/Lecture11_Bias_Ethics_Cheatsheet.pdf" download>PDF<span class="fmt"> (PDF, 160 KB)</span></a><br><a href="Cheatsheets/Lecture11_Bias_Ethics_Cheatsheet.docx" download>Word<span class="fmt"> (Word, 148 KB)</span></a></td></tr>
+  </tbody>
+ </table></div>
+</section>
+
+<section id="recipes" aria-labelledby="rec-h">
+ <h2 id="rec-h">Recipe notebooks</h2>
+ <p>Nine notebooks, one per main method, each with a two-page companion paper that explains the idea behind it. Each runs top to bottom in Colab with no setup.</p>
+ <ul class="cards">
+ <li class="card">
+  <h3><span class="num">Recipe 1</span> Linear and logistic regression</h3>
+  <p class="meta">Lectures 2, 3 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe01_Regression_Logistic.ipynb">Open in Colab<span class="sr"> (Recipe 1, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe01_Regression_Logistic.ipynb">View notebook on GitHub<span class="sr"> (Recipe 1)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe01_Regression_Logistic_Companion.pdf" download>PDF<span class="fmt"> (PDF, 134 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe01_Regression_Logistic_Companion.docx" download>Word<span class="fmt"> (Word, 141 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 2</span> Decision trees and random forests</h3>
+  <p class="meta">Lectures 2, 4 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe02_Trees_Forests.ipynb">Open in Colab<span class="sr"> (Recipe 2, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe02_Trees_Forests.ipynb">View notebook on GitHub<span class="sr"> (Recipe 2)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe02_Trees_Forests_Companion.pdf" download>PDF<span class="fmt"> (PDF, 130 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe02_Trees_Forests_Companion.docx" download>Word<span class="fmt"> (Word, 128 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 3</span> Regularization and tuning</h3>
+  <p class="meta">Lectures 2, 4 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe03_Regularization_Tuning.ipynb">Open in Colab<span class="sr"> (Recipe 3, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe03_Regularization_Tuning.ipynb">View notebook on GitHub<span class="sr"> (Recipe 3)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe03_Regularization_Tuning_Companion.pdf" download>PDF<span class="fmt"> (PDF, 150 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe03_Regularization_Tuning_Companion.docx" download>Word<span class="fmt"> (Word, 181 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 4</span> Principal component analysis (PCA)</h3>
+  <p class="meta">Lectures 8 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe04_PCA.ipynb">Open in Colab<span class="sr"> (Recipe 4, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe04_PCA.ipynb">View notebook on GitHub<span class="sr"> (Recipe 4)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe04_PCA_Companion.pdf" download>PDF<span class="fmt"> (PDF, 167 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe04_PCA_Companion.docx" download>Word<span class="fmt"> (Word, 213 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 5</span> Clustering</h3>
+  <p class="meta">Lectures 8 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe05_Clustering.ipynb">Open in Colab<span class="sr"> (Recipe 5, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe05_Clustering.ipynb">View notebook on GitHub<span class="sr"> (Recipe 5)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe05_Clustering_Companion.pdf" download>PDF<span class="fmt"> (PDF, 134 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe05_Clustering_Companion.docx" download>Word<span class="fmt"> (Word, 122 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 6</span> Neural networks</h3>
+  <p class="meta">Lectures 6, 7 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe06_Neural_Networks.ipynb">Open in Colab<span class="sr"> (Recipe 6, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe06_Neural_Networks.ipynb">View notebook on GitHub<span class="sr"> (Recipe 6)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe06_Neural_Networks_Companion.pdf" download>PDF<span class="fmt"> (PDF, 137 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe06_Neural_Networks_Companion.docx" download>Word<span class="fmt"> (Word, 139 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 7</span> Text as data: bag of words, TF-IDF, embeddings</h3>
+  <p class="meta">Lectures 9 · Data: SMS spam.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe07_Text_Embeddings.ipynb">Open in Colab<span class="sr"> (Recipe 7, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe07_Text_Embeddings.ipynb">View notebook on GitHub<span class="sr"> (Recipe 7)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe07_Text_Embeddings_Companion.pdf" download>PDF<span class="fmt"> (PDF, 140 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe07_Text_Embeddings_Companion.docx" download>Word<span class="fmt"> (Word, 174 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 8</span> Transformers and LLMs</h3>
+  <p class="meta">Lectures 10 · Data: SMS spam. Faster with a free GPU.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe08_Transformers_LLMs.ipynb">Open in Colab<span class="sr"> (Recipe 8, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe08_Transformers_LLMs.ipynb">View notebook on GitHub<span class="sr"> (Recipe 8)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe08_Transformers_LLMs_Companion.pdf" download>PDF<span class="fmt"> (PDF, 121 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe08_Transformers_LLMs_Companion.docx" download>Word<span class="fmt"> (Word, 96 KB)</span></a></li>
+  </ul>
+</li><li class="card">
+  <h3><span class="num">Recipe 9</span> Interpretability and fairness audit</h3>
+  <p class="meta">Lectures 11 · Data: OULAD.</p>
+  <p><a class="btn" href="https://colab.research.google.com/github/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe09_Interpretability_Fairness.ipynb">Open in Colab<span class="sr"> (Recipe 9, opens Google Colab)</span></a></p>
+  <ul class="links">
+    <li><a href="https://github.com/okanbulut/edpy506/blob/main/recipes/notebooks/Recipe09_Interpretability_Fairness.ipynb">View notebook on GitHub<span class="sr"> (Recipe 9)</span></a></li>
+    <li>Companion paper: <a href="Recipes/Companion%20papers/Recipe09_Interpretability_Fairness_Companion.pdf" download>PDF<span class="fmt"> (PDF, 137 KB)</span></a> · <a href="Recipes/Companion%20papers/Recipe09_Interpretability_Fairness_Companion.docx" download>Word<span class="fmt"> (Word, 130 KB)</span></a></li>
+  </ul>
+</li>
+ </ul>
+</section>
+
+<section id="data" aria-labelledby="data-h">
+ <h2 id="data-h">Data and credits</h2>
+ <ul>
+  <li><strong>OULAD</strong> (Recipes 1–6 and 9): Kuzilek, J., Hlosta, M., &amp; Zdrahal, Z. (2017). Open University Learning Analytics dataset. <em>Scientific Data, 4</em>, 170171. <a href="https://doi.org/10.1038/sdata.2017.171">doi.org/10.1038/sdata.2017.171</a>. CC BY 4.0. <a href="https://github.com/okanbulut/edpy506/blob/main/data/oulad_bbb2013j.csv">CSV file</a>.</li>
+  <li><strong>SMS Spam Collection</strong> (Recipes 7 and 8): Almeida, T. A., Gómez Hidalgo, J. M., &amp; Yamakami, A. (2011). Contributions to the study of SMS spam filtering. <em>Proc. ACM DocEng</em>, 259–262. CC BY 4.0. <a href="https://github.com/okanbulut/edpy506/blob/main/data/sms_spam.tsv">TSV file</a>.</li>
+  <li>Recipe 8 downloads two open models from Hugging Face the first time it runs: all-MiniLM-L6-v2 and Qwen2.5-0.5B-Instruct.</li>
+ </ul>
+ <p>Source for everything on this page: <a href="https://github.com/okanbulut/edpy506">github.com/okanbulut/edpy506</a>.</p>
+</section>
+</main>
+<footer><div class="bar" aria-hidden="true"></div><div class="wrap"><p>© Okan Bulut · EDPY 506 Machine Learning: Theory and Applications · University of Alberta. Code is MIT licensed; datasets keep their own licences.</p></div></footer>
+</body>
+</html>
